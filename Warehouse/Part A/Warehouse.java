@@ -11,24 +11,20 @@ public class Warehouse
    *  @param orderQuant the quantity requested of this product
    *  @return true if the order is completed; false otherwise.
    */
-  public boolean fulfillOrder(String code, int orderQuant)
-  {
-    /* Implement your answer to part (a) here */
-    for(Product[] row : stock) {
-      for(Product p : row) {
-        if(p.getProductCode().equals(code)) {
-          if(p.getQuant() >= orderQuant) {
+  public boolean fulfillOrder(String code, int orderQuant) {
+    for (Product[] row : stock) {
+      for (Product p : row) {
+        if (p.getProductCode().equals(code)) {
+          if (p.getQuant() >= orderQuant) {
             p.setQuant(p.getQuant() - orderQuant);
             return true;
           } else {
             return false;
           }
-        } else {
-          return false;
         }
       }
     }
-    
+
     return false;
   }
 
